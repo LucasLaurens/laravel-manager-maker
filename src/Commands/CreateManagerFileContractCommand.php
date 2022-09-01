@@ -35,7 +35,7 @@ final class CreateManagerFileContractCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return "{$rootNamespace}\\Manager";
+        return "{$rootNamespace}\\Managers";
     }
 
     /**

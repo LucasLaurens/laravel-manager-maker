@@ -21,7 +21,7 @@ final class LaravelManagerMakerCommand extends Command
     /**
      * @var string
      */
-    protected $type = 'manager';
+    protected $type = 'ManagerMaker';
 
     public function handle(): int
     {

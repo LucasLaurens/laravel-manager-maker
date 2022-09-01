@@ -35,7 +35,7 @@ class CreateManagerFileCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return "{$rootNamespace}\\{$this->type}";
+        return "{$rootNamespace}\\{$this->type}s";
     }
 
     /**
@@ -66,7 +66,7 @@ class CreateManagerFileCommand extends GeneratorCommand
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
         $contractName = str_replace($this->getNamespace($name).'\\', '', $name).'Contract';
-        $contractNamespace = $this->rootNamespace()."{$this->type}\\{$contractName}";
+        $contractNamespace = $this->rootNamespace()."{$this->type}s\\{$contractName}";
 
         $replace = [
             '{{ class }}' => $class,
