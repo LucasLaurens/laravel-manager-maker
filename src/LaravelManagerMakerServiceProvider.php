@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace LucasLaurens\LaravelManagerMaker;
 
+use LucasLaurens\LaravelManagerMaker\Commands\CreateManagerFileCommand;
+use LucasLaurens\LaravelManagerMaker\Commands\CreateManagerFileContractCommand;
+use LucasLaurens\LaravelManagerMaker\Commands\LaravelManagerMakerCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use LucasLaurens\LaravelManagerMaker\Commands\CreateManagerFileCommand;
-use LucasLaurens\LaravelManagerMaker\Commands\LaravelManagerMakerCommand;
-use LucasLaurens\LaravelManagerMaker\Commands\CreateManagerFileContractCommand;
 
 final class LaravelManagerMakerServiceProvider extends PackageServiceProvider
 {
@@ -19,7 +19,6 @@ final class LaravelManagerMakerServiceProvider extends PackageServiceProvider
             ->hasConfigFile('manager-maker')
             ->hasCommand(LaravelManagerMakerCommand::class)
             ->hasCommand(CreateManagerFileCommand::class)
-            ->hasCommand(CreateManagerFileContractCommand::class)
-        ;
+            ->hasCommand(CreateManagerFileContractCommand::class);
     }
 }
