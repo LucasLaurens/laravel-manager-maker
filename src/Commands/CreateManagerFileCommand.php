@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace LucasLaurens\LaravelManagerMaker\Commands;
 
 use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Support\Str;
 
 class CreateManagerFileCommand extends GeneratorCommand
 {
