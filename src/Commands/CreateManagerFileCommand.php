@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace LucasLaurens\LaravelManagerMaker\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class CreateManagerFileCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-manager-maker';
 
     public $description = 'My command';
 

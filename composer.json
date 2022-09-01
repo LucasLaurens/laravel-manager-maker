@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "lucaslaurens/laravel-manager-maker",
+    "description": "A small package allowing you to create some management files to manage your business logic.",
     "keywords": [
-        ":vendor_name",
+        "LucasLaurens",
         "laravel",
-        ":package_slug"
+        "laravel-manager-maker"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/lucaslaurens/laravel-manager-maker",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "LucasLaurens",
+            "email": "lucaslaurens.74@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "LucasLaurens\\LaravelManagerMaker\\": "src",
+            "LucasLaurens\\LaravelManagerMaker\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "LucasLaurens\\LaravelManagerMaker\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -51,15 +51,19 @@
         "format": "vendor/bin/pint"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "LucasLaurens\\LaravelManagerMaker\\LaravelManagerMakerServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelManagerMaker": "LucasLaurens\\LaravelManagerMaker\\Facades\\LaravelManagerMaker"
             }
         }
     },
