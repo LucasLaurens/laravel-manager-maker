@@ -1,19 +1,92 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LucasLaurens\LaravelManagerMaker\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Support\Str;
+use Illuminate\Console\GeneratorCommand;
 
-class CreateManagerFileCommand extends Command
+class CreateManagerFileCommand extends GeneratorCommand
 {
-    public $signature = 'laravel-manager-maker';
+    /**
+     * @var string
+     */
+    protected $name = 'make:manager-class';
 
-    public $description = 'My command';
+    /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Manager';
 
-    public function handle(): int
+    /**
+     * @return string
+     */
+    protected function getStub(): string
     {
-        $this->comment('All done');
+        return __DIR__.'/../../stubs/manager.stub';
+    }
 
-        return self::SUCCESS;
+    /**
+     * @param  string  $rootNamespace
+     * @return string
+     */
+    protected function getDefaultNamespace($rootNamespace): string
+    {
+        return "{$rootNamespace}\\{$this->type}";
+    }
+
+    /**
+     * Build the class with the given name.
+     *
+     * @param  string  $name
+     * @return string
+     *
+     * @throws FileNotFoundException
+     */
+    protected function buildClass($name): string
+    {
+        $stub = $this->files->get($this->getStub());
+
+        return $this
+            ->replaceNamespace($stub, ucfirst($name))
+            ->replaceClass($stub, $name);
+    }
+
+    /**
+     * Replace the class name for the given stub.
+     *
+     * @param  string  $stub
+     * @param  string  $name
+     * @return string
+     */
+    protected function replaceClass($stub, $name): string
+    {
+        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $contractName = str_replace($this->getNamespace($name).'\\', '', $name).'Contract';
+        $contractNamespace = $this->rootNamespace()."{$this->type}\\{$contractName}";
+
+        $replace = [
+            '{{ class }}' => $class,
+            '{{ contract }}' => $contractName,
+            '{{ contractNamespace }}' => $contractNamespace,
+        ];
+
+        return str_replace(array_keys($replace), array_values($replace), $stub);
+    }
+
+    /**
+     * Get the destination class path.
+     *
+     * @param  string  $name
+     * @return string
+     */
+    protected function getPath($name): string
+    {
+        $name = Str::replaceFirst($this->rootNamespace(), '', $name);
+
+        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
     }
 }
