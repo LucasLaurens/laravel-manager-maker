@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-manager-maker` will be documented in this file.
 
+## v1.4 - 2022-09-01
+
+Fix the generation of the Manager file and his contract
+
 ## v1.2 - 2022-09-01
 
 - Fix the phpstan issues
