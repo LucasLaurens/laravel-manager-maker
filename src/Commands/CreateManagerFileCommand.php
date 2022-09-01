@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace LucasLaurens\LaravelManagerMaker\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 class CreateManagerFileCommand extends GeneratorCommand
 {

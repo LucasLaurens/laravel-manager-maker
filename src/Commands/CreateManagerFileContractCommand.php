@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace LucasLaurens\LaravelManagerMaker\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 final class CreateManagerFileContractCommand extends GeneratorCommand
 {
@@ -51,7 +51,7 @@ final class CreateManagerFileContractCommand extends GeneratorCommand
         $stub = $this->files->get($this->getStub());
 
         return $this->replaceNamespace($stub, $name)
-                    ->replaceClass($stub, $name . $this->type);
+                    ->replaceClass($stub, $name.$this->type);
     }
 
     /**
@@ -64,6 +64,6 @@ final class CreateManagerFileContractCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name . $this->type).'.php';
+        return $this->laravel['path'].'/'.str_replace('\\', '/', $name.$this->type).'.php';
     }
 }
