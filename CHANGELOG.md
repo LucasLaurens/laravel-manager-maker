@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-manager-maker` will be documented in this file.
 
+## v1.2 - 2022-09-01
+
+- Fix the phpstan issues
+- Remove the tests from build workflow because for the moment no test has been created
+
 ## v1.1 - 2022-09-01
 
 Ensure the files are located from the Managers folder and not Manager.
