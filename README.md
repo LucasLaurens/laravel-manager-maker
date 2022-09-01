@@ -43,3 +43,7 @@ Or just add the package from the `composer.json` and do a `composer update`:
 ## Credits
 
 - [Lucas Laurens](https://github.com/LucasLaurens)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
