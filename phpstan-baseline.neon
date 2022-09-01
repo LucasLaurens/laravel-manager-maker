@@ -1,0 +1,26 @@
+parameters:
+    level: max
+    reportUnmatchedIgnoredErrors: false
+
+    paths:
+        - src
+        - config
+    checkOctaneCompatibility: true
+    checkModelProperties: true
+    checkMissingIterableValueType: false
+
+    excludePaths:
+        # Test dependencies
+        - '**/spec/**.php'
+        - '**/Bundle/*/test/**.php'
+        - '**/Bundle/*/test/app/**.php'
+        - '**/Bundle/*/test/src/**.php'
+        - '**/Bundle/*/Tests/Functional/app/**.php'
+        - '**/Bundle/*/Tests/Functional/var/**.php'
+
+        # Vendor files in subpackages
+        - '**/Bundle/*/vendor/**.php'
+        - '**/Component/*/vendor/**.php'
+
+        - 'config/bootstrap.php'
+        - 'config/bundles.php'

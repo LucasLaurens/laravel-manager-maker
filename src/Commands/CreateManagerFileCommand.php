@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace LucasLaurens\LaravelManagerMaker\Commands;
 
-use Illuminate\Console\GeneratorCommand;
+use Exception;
 use Illuminate\Support\Str;
+use Illuminate\Console\GeneratorCommand;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class CreateManagerFileCommand extends GeneratorCommand
 {
@@ -87,6 +90,12 @@ class CreateManagerFileCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
+        /** @var array $app */
+        $app = $this->laravel;
+        if (array_key_exists('path', $app)) {
+            throw new Exception("The path key doesn't exist from the app configuration");
+        }
+
+        return $app['path'].'/'.str_replace('\\', '/', $name).'.php';
     }
 }
