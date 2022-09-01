@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace LucasLaurens\LaravelManagerMaker\Commands;
 
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Support\Str;
 
 final class CreateManagerFileContractCommand extends GeneratorCommand
 {
@@ -68,7 +68,7 @@ final class CreateManagerFileContractCommand extends GeneratorCommand
 
         /** @var array $app */
         $app = $this->laravel;
-        if (array_key_exists('path', $app)) {
+        if (!isset($app['path'])) {
             throw new Exception("The path key doesn't exist from the app configuration");
         }
 
