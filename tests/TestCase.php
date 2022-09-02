@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace LucasLaurens\LaravelManagerMaker\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use LucasLaurens\LaravelManagerMaker\LaravelManagerMakerServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
