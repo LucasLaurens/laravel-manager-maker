@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-manager-maker` will be documented in this file.
 
+## v1.5 - 2022-09-02
+
+Ensure there are some test that have been added to check if the command to create manager files works
+
 ## v1.4 - 2022-09-01
 
 Fix the generation of the Manager file and his contract
